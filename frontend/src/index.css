@@ -25,6 +25,17 @@
   font-display: swap;
 }
 
+@theme {
+  /* Coffee Palette */
+  --color-coffee-dark: #2a1a12;
+  --color-coffee-medium: #4e342e;
+  --color-coffee-light: #8d6e63;
+  --color-caramel: #d4a373;
+  --color-cream: #fefae0;
+  --color-primary: #d4a373;
+  --color-primary-hover: #b98a5d;
+}
+
 :root {
   --font-arabic: 'Readex Pro', sans-serif;
   --font-en-heading: 'Playfair Display', serif;
@@ -37,15 +48,14 @@
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(12px);
-  
-  /* Coffee Palette */
+
+  /* Legacy variable support if needed, though Tailwind 4 should handle the above */
   --coffee-dark: #2a1a12;
   --coffee-medium: #4e342e;
   --coffee-light: #8d6e63;
   --caramel: #d4a373;
   --cream: #fefae0;
   --primary: #d4a373;
-  --primary-hover: #b98a5d;
 }
 
 /* Lang Dynamic Theme */
