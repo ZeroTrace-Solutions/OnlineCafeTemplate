@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Coffee Shop Design System */
+:root {
+  --font-arabic: "Almarai", system-ui, -apple-system, sans-serif;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+  
+  /* Coffee Palette */
+  --coffee-dark: #2a1a12;
+  --coffee-medium: #4e342e;
+  --coffee-light: #8d6e63;
+  --caramel: #d4a373;
+  --cream: #fefae0;
+  --primary: #d4a373;
+  --primary-hover: #b98a5d;
+}
+
+html, body {
+  background: var(--coffee-dark);
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+[data-theme='dark'] {
+  --bg-color: #120c0a;
+  --text-color: #fefae0;
+  --card-bg: rgba(42, 26, 18, 0.6);
+}
+
+[data-theme='light'] {
+  --bg-color: #fcf6f0;
+  --text-color: #2a1a12;
+  --card-bg: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  font-family: var(--font-arabic);
+  background: var(--coffee-dark);
+  color: var(--text-color);
+  min-height: 100dvh;
+  transition: background-color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Striking Mobile View Utilities */
+@media (max-width: 768px) {
+  .mobile-striking {
+    border-radius: 2rem 2rem 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+  }
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+}
+
+.primary-gradient {
+  background: linear-gradient(135deg, var(--caramel) 0%, var(--coffee-light) 100%);
+}
+
+.coffee-seed {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="%234e342e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C7.58 2 4 5.58 4 10C4 16.62 12 22 12 22C12 22 20 16.62 20 10C20 5.58 16.42 2 12 2ZM12 4C13.66 4 15 5.34 15 7C15 8.66 13.66 10 12 10C10.34 10 9 8.66 9 7C9 5.34 10.34 4 12 4Z"/></svg>');
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Horizontal Category Scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
