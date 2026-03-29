@@ -55,11 +55,11 @@ const PreviewBanner = () => {
     <motion.div 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-[2000] px-4 py-2 bg-gradient-to-r from-caramel/90 to-caramel backdrop-blur-md flex items-center justify-center border-b border-black/10 shadow-lg pointer-events-none select-none"
+      className="fixed top-0 left-0 right-0 z-[2000] px-4 py-1.5 bg-white/95 backdrop-blur-md flex items-center justify-center border-b border-black/5 shadow-2xl pointer-events-none select-none"
     >
       <div className="flex items-center space-x-2">
-        <div className="w-1.5 h-1.5 rounded-full bg-coffee-dark animate-pulse" />
-        <span className="text-coffee-dark font-black uppercase tracking-[0.2em] text-[8px] md:text-[10px] text-center drop-shadow-sm">
+        <div className="w-1.5 h-1.5 rounded-full bg-caramel animate-pulse" />
+        <span className="text-coffee-dark font-black uppercase tracking-[0.2em] text-[7px] md:text-[9px] text-center">
           {t('preview_mode')}
         </span>
       </div>

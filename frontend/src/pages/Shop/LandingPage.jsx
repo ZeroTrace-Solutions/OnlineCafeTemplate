@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, ShoppingBag, Coffee, Plus, ChevronLeft, ChevronRight, ShoppingCart, Trash2, Minus, X } from 'lucide-react';
+import { ChevronUp, ChevronDown, ShoppingBag, Coffee, Plus, ChevronLeft, ChevronRight, ShoppingCart, Trash2, Minus, X, Mouse } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/cartContext';
 import dataCenter from '../../data/dataCenter';
@@ -15,7 +15,7 @@ import bgImage from '../../assets/images/background.png';
 
 const LandingPage = () => {
   const { t, i18n } = useTranslation();
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => !sessionStorage.getItem('coffeeIntroShown'));
   const [selectedCategory, setSelectedCategory] = useState('c1');
   const [activeIdx, setActiveIdx] = useState(0);
   const [activeProduct, setActiveProduct] = useState(null);
@@ -27,9 +27,14 @@ const LandingPage = () => {
   const isRTL = i18n.language === 'ar';
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (showIntro) {
+      const timer = setTimeout(() => {
+        setShowIntro(false);
+        sessionStorage.setItem('coffeeIntroShown', 'true');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showIntro]);
 
   const filteredProducts = dataCenter.products.filter(p => p.categoryId === selectedCategory);
 
@@ -304,6 +309,26 @@ const LandingPage = () => {
                        onWheel={handleWheel}
                        className={`relative w-full h-80 flex items-center justify-center cursor-ns-resize transition-all duration-700 ${pairedItem ? (isRTL ? '-translate-x-[15%] md:-translate-x-0' : 'translate-x-[15%] md:translate-x-0') + ' scale-90 md:scale-100' : ''}`}
                      >
+                       <div className={`absolute ${isRTL ? 'left-4 md:left-14' : 'right-4 md:right-14'} top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 md:gap-5 z-[120] pointer-events-none opacity-50 md:opacity-60 transition-opacity scale-100 md:scale-125`}>
+                          <motion.div animate={{ y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
+                            <ChevronUp size={24} className="text-white/60" />
+                          </motion.div>
+                          <div className="flex flex-col items-center gap-2 md:gap-4">
+                             <div className="w-7 h-11 md:w-9 md:h-14 border-2 border-white/30 rounded-full flex flex-col items-center p-1 md:p-1.5">
+                                <motion.div 
+                                  animate={{ y: [0, 8, 0] }}
+                                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                                  className="w-1 h-3 md:w-1.5 md:h-4 bg-caramel rounded-full shadow-[0_0_8px_rgba(212,163,115,0.4)]"
+                                />
+                             </div>
+                             <span className={`[writing-mode:vertical-lr] text-[9px] md:text-[12px] font-black uppercase tracking-[0.4em] drop-shadow-lg ${isRTL ? 'rotate-180' : ''}`}>
+                               {isRTL ? 'اسحب للتصفح' : 'SWIPE TO EXPLORE'}
+                             </span>
+                          </div>
+                          <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}>
+                            <ChevronDown size={24} className="text-white/60" />
+                          </motion.div>
+                       </div>
                         {filteredProducts.map((product, idx) => {
                           const relativeIdx = (idx - activeIdx + filteredProducts.length) % filteredProducts.length;
                           if (relativeIdx > 3) return null; 

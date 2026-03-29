@@ -1,8 +1,39 @@
 @import "tailwindcss";
 
-/* Coffee Shop Design System */
+/* Coffee Shop Design System Fonts */
+@font-face {
+  font-family: 'Readex Pro';
+  src: url('./assets/fonts/ar/ReadexPro-VariableFont_HEXP,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/en/headings/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('./assets/fonts/en/body/Lora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-arabic: "Almarai", system-ui, -apple-system, sans-serif;
+  --font-arabic: 'Readex Pro', sans-serif;
+  --font-en-heading: 'Playfair Display', serif;
+  --font-en-body: 'Lora', serif;
+  
+  /* Tailwind 4.0 Default Font Overrides */
+  --font-sans: var(--font-arabic);
+  --font-serif: var(--font-en-heading);
+  
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(12px);
@@ -15,6 +46,12 @@
   --cream: #fefae0;
   --primary: #d4a373;
   --primary-hover: #b98a5d;
+}
+
+/* Lang Dynamic Theme */
+html[lang='en'] {
+  --font-sans: var(--font-en-body);
+  --font-serif: var(--font-en-heading);
 }
 
 html, body {
@@ -39,15 +76,35 @@ html, body {
 }
 
 body {
-  font-family: var(--font-arabic);
+  font-family: var(--font-sans);
   background: var(--coffee-dark);
-  color: var(--text-color);
+  color: var(--text-color, #fff);
   min-height: 100dvh;
   transition: background-color 0.3s ease;
   overflow-x: hidden;
 }
 
-/* Striking Mobile View Utilities */
+/* Lang Specific Overrides */
+html[lang='en'] body {
+  font-family: var(--font-en-body);
+}
+
+html[lang='en'] h1, 
+html[lang='en'] h2, 
+html[lang='en'] h3, 
+html[lang='en'] h4, 
+html[lang='en'] h5, 
+html[lang='en'] h6 {
+  font-family: var(--font-en-heading);
+  letter-spacing: -0.02em;
+}
+
+html[lang='ar'] body {
+  font-family: var(--font-arabic);
+  line-height: 1.7; /* Readex Pro looks better with more leading */
+}
+
+/* Glass & Mobile Utilities */
 @media (max-width: 768px) {
   .mobile-striking {
     border-radius: 2rem 2rem 0 0;
