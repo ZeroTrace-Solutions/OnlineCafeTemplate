@@ -155,8 +155,8 @@ const CheckoutPage = () => {
                     <LanguageToggle />
                 </div>
                 <div className={`flex items-center gap-2 md:gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full primary-gradient shadow-xl shadow-caramel/20 flex items-center justify-center">
-                        <Coffee size={18} className="text-coffee-dark" />
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl primary-gradient shadow-xl shadow-caramel/20 flex items-center justify-center p-1.5 overflow-hidden">
+                        <img src="/logo.png" className="w-full h-full object-contain" alt="Logo" />
                     </div>
                     <span className="font-black uppercase tracking-tighter text-lg md:text-xl text-white">{t('checkout_title')}</span>
                 </div>

@@ -94,7 +94,9 @@ const OrdersPage = () => {
                         <LanguageToggle />
                     </div>
                     <div className="flex flex-col items-center">
-                        <Receipt className="text-caramel mb-1 md:mb-2" size={24} />
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl primary-gradient shadow-xl shadow-caramel/20 flex items-center justify-center p-1.5 overflow-hidden mb-2">
+                            <img src="/logo.png" className="w-full h-full object-contain" alt="Logo" />
+                        </div>
                         <h1 className="text-lg md:text-2xl font-black uppercase tracking-widest text-center hidden md:block">{t('orders_title')}</h1>
                     </div>
                     <div className="w-10 md:w-24" />

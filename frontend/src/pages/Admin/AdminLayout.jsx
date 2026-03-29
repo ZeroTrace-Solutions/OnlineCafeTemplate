@@ -54,8 +54,8 @@ const AdminLayout = () => {
       `}>
         <div className="flex flex-col h-full p-6">
           <div className={`flex items-center gap-4 mb-12 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <div className="w-10 h-10 rounded-xl primary-gradient flex items-center justify-center shadow-lg shadow-caramel/20">
-              <Coffee className="text-coffee-dark" size={24} />
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl primary-gradient flex items-center justify-center shadow-lg shadow-caramel/20 p-1.5 overflow-hidden">
+              <img src="/logo.png" className="w-full h-full object-contain" alt="Logo" />
             </div>
             <span className="text-xl font-black uppercase tracking-tighter">{t('hub_admin')}</span>
           </div>

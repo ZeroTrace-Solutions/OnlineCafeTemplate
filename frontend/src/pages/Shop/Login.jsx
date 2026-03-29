@@ -64,8 +64,8 @@ const LoginPage = () => {
          </div>
          
          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full primary-gradient shadow-xl shadow-caramel/20 flex items-center justify-center">
-               <Coffee size={18} className="text-coffee-dark" />
+            <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl primary-gradient shadow-xl shadow-caramel/20 flex items-center justify-center p-1.5 overflow-hidden">
+               <img src="/logo.png" className="w-full h-full object-contain" alt="Logo" />
             </div>
             <span className="font-black uppercase tracking-tighter text-lg md:text-xl text-white hidden md:inline">{t('COFFEE HUB')}</span>
          </div>

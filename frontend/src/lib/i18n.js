@@ -9,6 +9,8 @@ i18n
     resources: {
       en: {
         translation: {
+          "welcome_title": "Welcome to Coffee Hub",
+          "welcome_subtitle": "Experience the Art of Perfection",
           "COFFEE HUB": "COFFEE HUB",
           "login": "Sign In",
           "signup": "Join",
@@ -187,11 +189,14 @@ i18n
           "save_product": "Save Product",
           "edit_product": "Edit Product",
           "add_product": "Add Product",
-          "delete_confirm": "Are you sure you want to delete this product?"
+          "delete_confirm": "Are you sure you want to delete this product?",
+          "preview_mode": "PREVIEW MODE: No data is actually saved."
         }
       },
       ar: {
         translation: {
+          "welcome_title": "مرحباً بك في كوفي هب",
+          "welcome_subtitle": "استمتع بفن التحضير المثالي",
           "COFFEE HUB": "كوفي هب",
           "login": "تسجيل الدخول",
           "signup": "انضم إلينا",
@@ -267,7 +272,6 @@ i18n
           "no_active_orders": "لا توجد طلبات حالية",
           "start_ordering": "ابدأ الطلب الآن",
           "track_order": "تتبع الطلب",
-          "and": " و ",
           "google_failed": "فشل تسجيل الدخول عبر جوجل.",
           "login_failed": "فشل تسجيل الدخول.",
           "currency_symbol": "ج.م",
@@ -373,7 +377,8 @@ i18n
           "save_product": "حفظ المنتج",
           "edit_product": "تعديل المنتج",
           "add_product": "إضافة منتج",
-          "delete_confirm": "هل تريد حذف هذا المنتج؟"
+          "delete_confirm": "هل تريد حذف هذا المنتج؟",
+          "preview_mode": "وضع العرض: لا يتم حفظ أي بيانات فعلياً."
         }
       }
     },

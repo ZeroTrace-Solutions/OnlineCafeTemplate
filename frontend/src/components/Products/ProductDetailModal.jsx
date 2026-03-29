@@ -65,10 +65,10 @@ const ProductDetailModal = ({ product, onClose }) => {
                 >
                     <div className="space-y-4">
                         <motion.h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-none">
-                            {product.name}
+                            {t(product.name)}
                         </motion.h2>
                         <p className="text-white/40 text-sm md:text-lg leading-relaxed font-bold tracking-tight max-w-md">
-                            {product.description}
+                            {t(product.description)}
                         </p>
                     </div>
 
